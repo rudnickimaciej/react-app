@@ -1,6 +1,14 @@
 import './App.css';
 import {Layout} from './pages/layout/layout'
-import {Posts} from './pages/posts/posts'
+import {Pets} from './pages/pets/pets'
+import {Pets as PetsTS} from './pages/pets/pets.tsx'
+
+import Login from './pages/sign-in/login'
+import Register from './pages/sign-up/register'
+import Settings from './pages/settings/settings'
+
+
+import {Router,Route, Routes, useNavigate} from 'react-router-dom'
 
 function App() {
 
@@ -8,7 +16,14 @@ function App() {
  
   return (
     <div className="App">
-    <Posts/>
+   
+        <Routes>
+                <Route path = "/pets" element = {<PetsTS/>}/>
+                <Route path = "/login" element = {<Login/>}/>  
+                <Route path = "/register" element = {<Register/>}/>  
+                <Route path = "/settings" element = {<Settings/>}/>          
+        </Routes>
+      
       {/* {places.map((item, index)=>
 
         <p key = {index}> {item.name}</p>

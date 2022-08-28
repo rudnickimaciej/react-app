@@ -1,14 +1,14 @@
 
-import {Layout} from './../layout/layout'
+import {Layout} from '../layout/layout'
 import {PetCard} from '../../components/pets/pet-card'
 import {Grid, Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
 import {pets} from '../../__mocks__/pets'
 import {useEffect, useState} from 'react'
 
-export const Posts = () => {
+export const Pets = () => {
 
   const [places, setPlaces] = useState([]);
-
+   
 
   useEffect( () =>{
     fetch("https://localhost:44345/api/places")

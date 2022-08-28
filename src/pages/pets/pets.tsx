@@ -1,58 +1,85 @@
+import { Layout } from "../layout/layout";
+import { Box, Button, Typography } from "@mui/material";
+import { pets } from "../../__mocks__/pets";
+import { useState } from "react";
+import Pet from "./models/pet";
+import Display from "./models/displayType";
+import { Map as MapIcon } from "../../assets/svg/map";
+import { List as ListIcon } from "../../assets/svg/list";
+import PetList from "./components/pet-list";
+import PetMap from "./components/pet-map";
 
-import {Layout} from '../layout/layout'
-import {PetCard} from '../../components/pets/pet-card'
-import {Grid, Box, Button, Divider, Drawer, Typography, useMediaQuery } from '@mui/material';
-import {pets} from '../../__mocks__/pets'
-import React, {useEffect, useState} from 'react'
-import Pet from './models/pet'
 export const Pets = () => {
-
   const [places, setPlaces] = useState([]);
-  const petsObjects : Pet[]= pets.map((pet)=>(new Pet(pet.id, pet.name, pet.city, pet.address)))
-   
+  const [display, setDisplay] = useState<Display>(Display.List);
 
-//   useEffect( () =>{
-//     fetch("https://localhost:44345/api/places")
-//     .then(res => res.json())
-//     .then(
-//       (result) => {
-//           console.log(result)
-//           setPlaces(
-//           result
-//         )      
-//       },
-//       (error) => {
-//         setState({
-//           isLoaded: true,
-//           error
-//         });
-//       }
-//     )
-// }, [])
-    
-return (
-         <Layout>
-
-
-<Box sx={{ pt: 3 }}>
-          <Grid
-            container
-            spacing={3}
-          >
-            {petsObjects.map((pet) => (
-              <Grid
-                item
-                key={pet.id}
-                lg={4}
-                md={6}
-                xs={12}
-              >
-                <PetCard pet={pet} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
-         
-        </Layout>
-    );
+  const toggleDisplay = (display: Display) => {
+    setDisplay(display);
   };
+
+  const petsObjects: Pet[] = pets.map(
+    (pet) => new Pet(pet.id, pet.name, pet.city, pet.address)
+  );
+
+  //   useEffect( () =>{
+  //     fetch("https://localhost:44345/api/places")
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //           console.log(result)
+  //           setPlaces(
+  //           result
+  //         )
+  //       },
+  //       (error) => {
+  //         setState({
+  //           isLoaded: true,
+  //           error
+  //         });
+  //       }
+  //     )
+  // }, [])
+
+  return (
+    <Layout>
+      <Box
+        sx={{
+          alignItems: "center",
+          display: "flex",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          m: -1,
+        }}
+      >
+        <Typography sx={{ m: 1 }} variant="h4">
+          Pets
+        </Typography>
+        <Box sx={{ m: 1 }}>
+          <Button
+            startIcon={<ListIcon fontSize="small" />}
+            sx={{ mr: 1 }}
+            variant={display == Display.List ? "contained" : "text"}
+            onClick={(e) => {
+              toggleDisplay(Display.List);
+            }}
+          />
+          <Button
+            startIcon={<MapIcon fontSize="small" />}
+            sx={{ mr: 1 }}
+            variant={display == Display.Map ? "contained" : "text"}
+            onClick={(e) => {
+              toggleDisplay(Display.Map);
+            }}
+          />
+        </Box>
+      </Box>
+      <Box sx={{ pt: 3 }}>
+        {display == Display.List ? (
+          <PetList pets={petsObjects} />
+        ) : (
+          <PetMap pets={petsObjects} />
+        )}
+      </Box>
+    </Layout>
+  );
+};

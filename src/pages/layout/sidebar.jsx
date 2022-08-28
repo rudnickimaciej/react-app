@@ -20,7 +20,12 @@ const items = [
   {
     href: "/pets",
     icon: <MenuIcon fontSize="small" />,
-    title: "Pets",
+    title: "Searches",
+  },
+  {
+    href: "/pets",
+    icon: <MenuIcon fontSize="small" />,
+    title: "Findings",
   },
   {
     href: "/settings",
@@ -36,6 +41,11 @@ const items = [
     href: "/register",
     icon: <MenuIcon fontSize="small" />,
     title: "Register",
+  },
+  {
+    href: "/register",
+    icon: <MenuIcon fontSize="small" />,
+    title: "Happy Endings <3",
   },
 ];
 
@@ -80,6 +90,25 @@ export const Sidebar = (props) => {
             my: 3,
           }}
         />
+          <Box
+          sx={{
+            px: 2,
+            py:1
+          }}
+        >
+          <Typography color="primary.blue" variant="body2">
+            <Button
+              color="primary"
+              component="a"
+              // endIcon={(<OpenInNewIcon />)}
+              fullWidth
+              sx={{ mt: 2 }}
+              variant="contained"
+            >
+              I found a pet!
+            </Button>
+          </Typography>
+        </Box>
         <Box sx={{ flexGrow: 1 }}>
           {items.map((item, index) => (
             <Link to={item.href} style={{ textDecoration: "none" }}>
@@ -93,6 +122,7 @@ export const Sidebar = (props) => {
           ))}
         </Box>
         <Divider sx={{ borderColor: "#2D3748" }} />
+
         <Box
           sx={{
             px: 2,

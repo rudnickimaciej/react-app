@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Avatar, Box, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
-import { Clock as ClockIcon } from '../../assets/svg/clock';
-import { Localization as LocalizationIcon } from '../../assets/svg/localization';
+import { Clock as ClockIcon } from '../../../assets/svg/clock'
+import { Localization as LocalizationIcon } from '../../../assets/svg/localization';
 
 export const PetCard = ({ pet, ...rest }) => (
   <Card

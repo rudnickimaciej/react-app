@@ -1,7 +1,6 @@
 import './App.css';
 import {Layout} from './pages/layout/layout'
-import {Pets} from './pages/pets/pets'
-import {Pets as PetsTS} from './pages/pets/pets.tsx'
+import {Pets as Pets} from './pages/pets/pets.tsx'
 
 import Login from './pages/sign-in/login'
 import Register from './pages/sign-up/register'
@@ -18,7 +17,7 @@ function App() {
     <div className="App">
    
         <Routes>
-                <Route path = "/pets" element = {<PetsTS/>}/>
+                <Route path = "/pets" element = {<Pets/>}/>
                 <Route path = "/login" element = {<Login/>}/>  
                 <Route path = "/register" element = {<Register/>}/>  
                 <Route path = "/settings" element = {<Settings/>}/>          

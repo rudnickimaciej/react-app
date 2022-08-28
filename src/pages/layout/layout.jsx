@@ -3,23 +3,26 @@ import { styled } from '@mui/material/styles';
 import { useState } from 'react'
 import {Sidebar} from './sidebar';
 import {Navbar} from './navbar'
-const DashboardLayoutRoot = styled('div')(() => ({
+import {PageContent} from './page-content'
+
+const LayoutRoot = styled('div')(() => ({
     display: 'flex',
     flex: '1 1 auto',
     maxWidth: '100%',
     paddingTop: 64
   }));
 
-export const DashboardLayout = (props) => {
+export const Layout = (props) => {
     const { children } = props;
     const [isSidebarOpen, setSidebarOpen] = useState(true);
   
     return (
       <>
-        <DashboardLayoutRoot>
-        <Sidebar/>
+        <LayoutRoot>
+          <Sidebar/>
           <Navbar/>
-        </DashboardLayoutRoot>
+          <PageContent page = {children}/>
+        </LayoutRoot>
         {/* <DashboardNavbar onSidebarOpen={() => setSidebarOpen(true)} />
         <DashboardSidebar
           onClose={() => setSidebarOpen(false)}

@@ -5,7 +5,7 @@ import {Pets as Pets} from './pages/pets/pets.tsx'
 import Login from './pages/sign-in/login'
 import Register from './pages/sign-up/register'
 import Settings from './pages/settings/settings'
-
+import {Pet} from'./pages/pet/pet'
 
 import {Router,Route, Routes, useNavigate} from 'react-router-dom'
 
@@ -18,6 +18,7 @@ function App() {
    
         <Routes>
                 <Route path = "/pets" element = {<Pets/>}/>
+                <Route path = "/pets/:id" element = {<Pet/>}/>
                 <Route path = "/login" element = {<Login/>}/>  
                 <Route path = "/register" element = {<Register/>}/>  
                 <Route path = "/settings" element = {<Settings/>}/>          

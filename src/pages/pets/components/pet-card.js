@@ -2,9 +2,12 @@ import PropTypes from 'prop-types';
 import { Avatar, Box, Card, CardContent, Divider, Grid, Typography } from '@mui/material';
 import { Clock as ClockIcon } from '../../../assets/svg/clock'
 import { Localization as LocalizationIcon } from '../../../assets/svg/localization';
-
+import {Link} from 'react-router-dom'
 export const PetCard = ({ pet, ...rest }) => (
-  <Card
+
+  <Link to={`/pets/${pet.id}`} style={{ textDecoration: 'none' }}>
+  <Card 
+    hoverable
     sx={{
       display: 'flex',
       flexDirection: 'column',
@@ -89,5 +92,6 @@ export const PetCard = ({ pet, ...rest }) => (
       </Grid>
     </Box>
   </Card>
+  </Link>
 );
 

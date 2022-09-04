@@ -2,7 +2,7 @@ import {v4 as uuid} from 'uuid'
 
 export const pets = [
     {
-       id: uuid(),
+       id: uuid().substr,
        name: "Tara",
        city: "Warszawa",
        address: "Kolejowa 3a/61" 

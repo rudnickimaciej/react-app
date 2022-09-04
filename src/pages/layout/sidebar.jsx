@@ -12,6 +12,7 @@ import { Menu as MenuIcon } from "../../assets/svg/menu";
 import { Upload as UploadIcon } from "../../assets/svg/upload";
 import { User as UserIcon } from "../../assets/svg/user";
 import { Logo as LogoIcon } from "../../assets/svg/logo";
+
 import { Link } from "react-router-dom";
 
 import NavItem from "./nav-item";
@@ -33,6 +34,16 @@ const items = [
     title: "Settings",
   },
   {
+    href: "/register",
+    icon: <MenuIcon fontSize="small" />,
+    title: "Happy Endings <3",
+  },
+  {
+    href: "/register",
+    icon: <MenuIcon fontSize="small" />,
+    title: "Shelters",
+  },
+  {
     href: "/login",
     icon: <UserIcon fontSize="small" />,
     title: "Login",
@@ -41,12 +52,7 @@ const items = [
     href: "/register",
     icon: <MenuIcon fontSize="small" />,
     title: "Register",
-  },
-  {
-    href: "/register",
-    icon: <MenuIcon fontSize="small" />,
-    title: "Happy Endings <3",
-  },
+  }
 ];
 
 export const Sidebar = (props) => {
